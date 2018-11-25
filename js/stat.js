@@ -62,6 +62,7 @@ var renderGameResults = function(ctx, names, times) {
 window.renderStatistics = function(ctx, names, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
+  ctx.fillStyle = '#000';
   renderText(ctx);
   renderGameResults(ctx, names, times);
   changeColor(names);
