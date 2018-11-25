@@ -41,7 +41,7 @@ var getMaxElement = function(times) {
 };
 
 //задаем функцию смены цвета колонок с результатами игроков
-var changeColor = function(names[i]) {
+var changeColor = function(names) {
   if (names[i] === 'Вы') {
     return 'rgba(255, 0, 0, 1)';
   } else {
@@ -54,10 +54,9 @@ var renderGameResults = function(ctx, names, times) {
   var maxTime = getMaxElement(times);
   for (var i = 0; i <names.length; i++) {
     ctx.fillText(names[i], CLOUD_X + GAP + (BAR_WIDTH * i), CLOUD_Y + CLOUD_WIDTH - GAP );
-    ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH * i), CLOUD_Y + BAR_HEIGHT, HISTOGRAM_WIDTH, (HISTOGRAM_HEIGHT * times[i]) / maxTime;
+    ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH * i), CLOUD_Y + BAR_HEIGHT, HISTOGRAM_WIDTH, (HISTOGRAM_HEIGHT * times[i]) / maxTime);
   }
 }
-
 
 //выводим все это на экран
 window.renderStatistics = function(ctx, names, times) {
