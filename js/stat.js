@@ -3,11 +3,15 @@ var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 10;
-
 var MESSAGE_X = CLOUD_WIDTH - 40;
 var MESSAGE_Y = 40;
 var MESSAGE_GAP = 20;
 var TEXT_FONT = '16px PT Mono';
+var HISTOGRAM_WIDTH = 40;
+var HISTOGRAM_HEIGHT = 150;
+var NAME_WIDTH = 50;
+var BAR_WIDTH = NAME_WIDTH + GAP;
+var BAR_HEIGHT = CLOUD_HEIGHT - HISTOGRAM_HEIGHT;
 
 //рисуем облако
 var renderCloud = function(ctx, x, y, color) {
@@ -49,7 +53,8 @@ var changeColor = function(names[i]) {
 var renderGameResults = function(ctx, names, times) {
   var maxTime = getMaxElement(times);
   for (var i = 0; i <names.length; i++) {
-
+    ctx.fillText(names[i], CLOUD_X + GAP + (BAR_WIDTH * i), CLOUD_Y + CLOUD_WIDTH - GAP );
+    ctx.fillRect(CLOUD_X + GAP + (BAR_WIDTH * i), CLOUD_Y + BAR_HEIGHT, HISTOGRAM_WIDTH, (HISTOGRAM_HEIGHT * times[i]) / maxTime;
   }
 }
 
@@ -60,4 +65,6 @@ window.renderStatistics = function(ctx, names, times) {
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
   renderText(ctx);
   renderGameResults(ctx, names, times);
+  changeColor(names);
 };
+
